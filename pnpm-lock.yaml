@@ -2,9 +2,15 @@ lockfileVersion: 5.4
 
 specifiers:
   astro: ^2.0.18
+  hotscript: ^1.0.10
+  type-fest: ^3.6.1
 
 dependencies:
   astro: 2.0.18
+
+devDependencies:
+  hotscript: 1.0.10
+  type-fest: 3.6.1
 
 packages:
 
@@ -1391,6 +1397,10 @@ packages:
       space-separated-tokens: 2.0.2
     dev: false
 
+  /hotscript/1.0.10:
+    resolution: {integrity: sha512-eDbtzWfe3LN1Zd9NYoNjogmnqd/LiAo1lKztARnEzzsRy5QKW+VJ7TCWzsDwbSuq79KZ0yVoelQD+GPW83O21w==}
+    dev: true
+
   /html-escaper/3.0.3:
     resolution: {integrity: sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ==}
     dev: false
@@ -2642,6 +2652,11 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
     dev: false
+
+  /type-fest/3.6.1:
+    resolution: {integrity: sha512-htXWckxlT6U4+ilVgweNliPqlsVSSucbxVexRYllyMVJDtf5rTjv6kF/s+qAd4QSL1BZcnJPEJavYBPQiWuZDA==}
+    engines: {node: '>=14.16'}
+    dev: true
 
   /typescript/4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}

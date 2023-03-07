@@ -11,5 +11,9 @@
   },
   "dependencies": {
     "astro": "^2.0.18"
+  },
+  "devDependencies": {
+    "hotscript": "^1.0.10",
+    "type-fest": "^3.6.1"
   }
 }
