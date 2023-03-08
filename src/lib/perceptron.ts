@@ -1,3 +1,4 @@
+import { activate } from "./activate"
 import type { Tuple } from "./utils/types"
 
 // export type Perceptron<Inputs extends number = 2> = {
@@ -27,8 +28,8 @@ export class Point {
 		return new Point(Math.random() * 100, Math.random() * 100)
 	}
 
-	draw(canvas: CanvasRenderingContext2D, scale: number = 5, guess: number) {
-		canvas.fillStyle = guess === -1 ? "red" : "green"
+	draw(canvas: CanvasRenderingContext2D, scale: number = 5, correct: boolean) {
+		canvas.fillStyle = correct ? "red" : "green"
 		canvas.beginPath()
 		canvas.arc(this.x * scale, this.y * scale, 5, 0, 2 * Math.PI)
 		canvas.fill()
@@ -37,26 +38,24 @@ export class Point {
 
 export class Perceptron {
 	weights = [1, 1]
-	learningRate = 0.01
+	bias = 0
+	learningRate = 0.008
 	constructor() {}
 
-	sign(n: number): number {
-		return n < 0 ? -1 : 1
-	}
-
 	guess(p: Point) {
-		const sum = this.weights[0] * p.x + this.weights[1] * p.y
-		return this.sign(sum)
+		const sum = this.weights[0] * p.x + this.weights[1] * p.y + this.bias
+		return activate(sum)
 	}
 
-	learn(p: Point, guess: number, expected: number) {
+	learn(p: Point, guess: number, expected: number, scale = 0) {
 		const error = expected - guess
 		this.weights[0] += error * p.x * this.learningRate
 		this.weights[1] += error * p.y * this.learningRate
+		this.bias += error * this.learningRate * scale
 		return error
 	}
 
 	fn(x: number) {
-		return -x * (this.weights[0] / this.weights[1])
+		return -((this.weights[0] * x + this.bias) / this.weights[1])
 	}
 }
